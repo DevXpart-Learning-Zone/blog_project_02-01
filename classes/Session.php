@@ -29,7 +29,7 @@ class Session {
     }
 
     public static function checkLogin() {
-        $login = self::get(['login']);
+        $login = self::get('login');
         if ($login == true) {
             header("Location: index.php");
         }
@@ -42,7 +42,4 @@ class Session {
             header("Location: login.php");
         }
     }
-
-    
-
 }

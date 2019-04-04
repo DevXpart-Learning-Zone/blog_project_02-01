@@ -1,12 +1,8 @@
 <?php 
 session_start();
-if(isset($_SESSION['login']))
-{
-  header('location: index.php');
-} 
-
 include '../classes/Database.php'; 
 include '../classes/User.php';
+Session::checkLogin();
 
 $db   = new Database();
 $user = new User();
