@@ -1,6 +1,7 @@
 <?php 
 include 'inc/header.php';
 include 'inc/sidebar.php';
+
 ?>
 <!-- partial -->
 <div class="main-panel">

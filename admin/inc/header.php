@@ -1,3 +1,12 @@
+<?php 
+  session_start();
+  include '../classes/Database.php';
+  include '../classes/User.php';
+  //echo "<pre>";
+  //print_r($_SESSION); die;
+  Session::checkSession() ;
+  
+?>
 <!DOCTYPE html>
 <html lang="en">
 

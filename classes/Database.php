@@ -6,7 +6,7 @@ class Database {
     private $userdb = "root";
     private $passdb = "";
     private $namedb = "projectdevxpart";
-    public $pdo;
+    public  $pdo;
 
     public function __construct() {
         if (!isset($this->pdo)) {
@@ -19,6 +19,17 @@ class Database {
                 die("Field to Connect with Database" . $exc->getMessage());
             }
         }
+    }
+
+    /*
+    !---------------------------------------
+    ! Prepare Method
+    !---------------------------------------
+    */
+    public function prepare($sql)
+    {
+        $stmt =  $this->pdo->prepare($sql);
+        return $stmt;
     }
 
 }

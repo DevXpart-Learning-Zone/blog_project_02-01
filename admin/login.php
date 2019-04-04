@@ -1,10 +1,20 @@
 <?php 
+session_start();
+if(isset($_SESSION['login']))
+{
+  header('location: index.php');
+} 
+
 include '../classes/Database.php'; 
-include '../classes/User.php'; 
+include '../classes/User.php';
+
 $db   = new Database();
 $user = new User();
+$message = '';
+
 if (isset($_POST['login'])) {
-   $user->userLogin($_POST);
+
+ $message =  $user->userLogin($_POST);
 }
 
 ?>
@@ -72,43 +82,42 @@ if (isset($_POST['login'])) {
                   <a href="#" class="text-small forgot-password text-black">Forgot Password</a>
                 </div>
                 <div class="form-group">
-                  <button class="btn btn-block g-login">
-                    <img class="mr-3" src="../asset/back/images/file-icons/icon-google.svg" alt="">Log in with Google</button>
-                </div>
-                <div class="text-block text-center my-3">
-                  <span class="text-small font-weight-semibold">Not a member ?</span>
-                  <a href="register.html" class="text-black text-small">Create new account</a>
-                </div>
-              </form>
+                 <?php echo $message;  ?>
+                  </div>
+                  <div class="text-block text-center my-3">
+                    <span class="text-small font-weight-semibold">Not a member ?</span>
+                    <a href="register.html" class="text-black text-small">Create new account</a>
+                  </div>
+                </form>
+              </div>
+              <ul class="auth-footer">
+                <li>
+                  <a href="#">Conditions</a>
+                </li>
+                <li>
+                  <a href="#">Help</a>
+                </li>
+                <li>
+                  <a href="#">Terms</a>
+                </li>
+              </ul>
+              <p class="footer-text text-center">copyright © 2018 Bootstrapdash. All rights reserved.</p>
             </div>
-            <ul class="auth-footer">
-              <li>
-                <a href="#">Conditions</a>
-              </li>
-              <li>
-                <a href="#">Help</a>
-              </li>
-              <li>
-                <a href="#">Terms</a>
-              </li>
-            </ul>
-            <p class="footer-text text-center">copyright © 2018 Bootstrapdash. All rights reserved.</p>
           </div>
         </div>
+        <!-- content-wrapper ends -->
       </div>
-      <!-- content-wrapper ends -->
+      <!-- page-body-wrapper ends -->
     </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  <script src="../asset/back/vendors/js/vendor.bundle.base.js"></script>
-  <script src="../asset/back/vendors/js/vendor.bundle.addons.js"></script>
-  <!-- endinject -->
-  <!-- inject:js -->
-  <script src="../asset/back/js/off-canvas.js"></script>
-  <script src="../asset/back/js/misc.js"></script>
-  <!-- endinject -->
-</body>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="../asset/back/vendors/js/vendor.bundle.base.js"></script>
+    <script src="../asset/back/vendors/js/vendor.bundle.addons.js"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="../asset/back/js/off-canvas.js"></script>
+    <script src="../asset/back/js/misc.js"></script>
+    <!-- endinject -->
+  </body>
 
-</html>
+  </html>
