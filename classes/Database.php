@@ -32,4 +32,19 @@ class Database {
         return $stmt;
     }
 
+
+    /*
+    !---------------------------------------
+    ! Count Row
+    !---------------------------------------
+    */
+    public function countRow($sql)
+    {
+        //select * from table
+        $stmt =  $this->pdo->prepare($sql);
+        $stmt->execute();
+        $row  = $stmt->rowCount();
+        return $row;   
+    }
+
 }

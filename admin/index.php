@@ -85,9 +85,9 @@ include 'inc/sidebar.php';
                 <i class="mdi mdi-account-location text-info icon-lg"></i>
               </div>
               <div class="float-right">
-                <p class="mb-0 text-right">Employees</p>
+                <p class="mb-0 text-right">Users</p>
                 <div class="fluid-container">
-                  <h3 class="font-weight-medium text-right mb-0">246</h3>
+                  <h3 class="font-weight-medium text-right mb-0"><?php  echo $db->countRow("select * from tbl_user"); ?></h3>
                 </div>
               </div>
             </div>
@@ -104,16 +104,16 @@ include 'inc/sidebar.php';
         <div class="card card-weather">
           <div class="card-body">
             <div class="weather-date-location">
-              <h3>Monday</h3>
+              <h3><?php echo date('l'); ?></h3>
               <p class="text-gray">
-                <span class="weather-date">25 October, 2016</span>
-                <span class="weather-location">London, UK</span>
+                <span class="weather-date"><?php echo date('d M, Y'); ?> </span>
+                <span class="weather-location"><?php echo date_default_timezone_get(); ?></span>
               </p>
             </div>
             <div class="weather-data d-flex">
               <div class="mr-auto">
-                <h4 class="display-3">21
-                  <span class="symbol">&deg;</span>C</h4>
+                <h4 class="display-3"><?php echo date('h:i:s A'); ?>
+                  <span class="symbol"></span></h4>
                   <p>
                     Mostly Cloudy
                   </p>
