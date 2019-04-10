@@ -32,10 +32,10 @@
             <div class="collapse" id="ui-basic1">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/buttons.html">Add Category</a>
+                  <a class="nav-link" href="add_category.php">Add Category</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/typography.html">Category List</a>
+                  <a class="nav-link" href="category_list.php">Category List</a>
                 </li>
               </ul>
             </div>
