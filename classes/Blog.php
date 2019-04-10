@@ -55,9 +55,9 @@
 	    */
 	    public function deleteCategory($data)
 	    {
-	    	$cat_id 	= $this->help->validation($data['cat_id']);
-	    	$sql = "delete from tbl_category where cat_id = :cat_id";
-	        $stmt =  $this->db->prepare($sql);
+	    	$cat_id = $this->help->validation($data['cat_id']);
+	    	$sql  	= "delete from tbl_category where cat_id = :cat_id";
+	        $stmt 	=  $this->db->prepare($sql);
 	        $stmt->bindValue(':cat_id', $cat_id);
 	        $stmt->execute();
 	        $this->message = "<p class='alert alert-success'>Category deleted successfully</p>";
