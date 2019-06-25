@@ -1,2 +1,5 @@
 works
 .phpintel
+.idea
+*.iml
+*.zip

@@ -97,6 +97,32 @@
 	    	 	return $this->message;
 	    }
 
+
+	    /*
+		!------------------------------------------
+		! Save Category
+		!------------------------------------------
+		*/
+	    public function saveBlog($data)
+	    {
+    	 	$blog_title 	= $this->help->validation($data['blog_title']);
+    	 	$cat_id 		= $this->help->validation($data['cat_id']);
+    	 	$blog_details 	= $this->help->validation($data['blog_details']);
+    	 	$user_id 		= Session::get('user_id');
+    	 	$blog_status 		= 'Active';
+    	 	
+        	$sql = "insert into tbl_blog (blog_title,cat_id,blog_details,user_id,blog_status) values(:blog_title,:cat_id,:blog_details,:user_id,:blog_status)";
+	        $stmt =  $this->db->prepare($sql);
+	        $stmt->bindValue(':blog_title', $blog_title);
+	        $stmt->bindValue(':cat_id', $cat_id);
+	        $stmt->bindValue(':blog_details', $blog_details);
+	        $stmt->bindValue(':user_id', $user_id);
+	        $stmt->bindValue(':blog_status', $blog_status);
+	        $result = $stmt->execute();
+	        $this->message = "<p class='alert alert-success'>Blog inserted succesfully</p>";
+    	 	return $this->message;
+	    }
+
 	}
 
  ?>
