@@ -37,6 +37,8 @@
                 <li class="nav-item">
                   <a class="nav-link" href="category_list.php">Category List</a>
                 </li>
+
+                
               </ul>
             </div>
           </li>
@@ -50,7 +52,7 @@
             <div class="collapse" id="ui-basic2">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/buttons.html">Add Blog</a>
+                  <a class="nav-link" href="add_blog.php">Add Blog</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="pages/ui-features/typography.html">Blog List</a>

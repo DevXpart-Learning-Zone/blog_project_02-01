@@ -24,7 +24,7 @@ if (isset($_POST['blog_title'])) {
               <div class="card-body">
                 <h4 class="card-title">Add Blog</h4>
 
-                <form class="forms-sample" action="" method="post">
+                <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Blog Title</label>
                     <input type="text" name="blog_title" class="form-control" id="exampleInputEmail1" placeholder="Enter blog title">
@@ -47,8 +47,13 @@ if (isset($_POST['blog_title'])) {
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Blog Title</label>
+                  <label for="exampleInputEmail1">Blog Description</label>
                   <textarea name="blog_details" cols="30" rows="10" class="form-control" placeholder="Enter blog detail here"></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Select Image</label>
+                  <input type="file" name="image" class="form-control" >
                 </div>
 
                 <button type="submit" class="btn btn-success mr-2">Submit</button>
@@ -70,4 +75,4 @@ if (isset($_POST['blog_title'])) {
     // instance, using default configuration.
     CKEDITOR.replace( 'blog_details' );
   </script>
-              <?php include 'inc/footer.php' ?>
+  <?php include 'inc/footer.php' ?>

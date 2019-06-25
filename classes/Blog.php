@@ -119,8 +119,41 @@
 	        $stmt->bindValue(':user_id', $user_id);
 	        $stmt->bindValue(':blog_status', $blog_status);
 	        $result = $stmt->execute();
+
+	        //get last blog id
+	        $sql    = "select blog_id from tbl_blog order by blog_id desc limit 1";
+	        $stmt   =  $this->db->prepare($sql);
+	        $stmt->execute();
+	        $lastid = $stmt->fetch(PDO::FETCH_OBJ);
+
+	        // upload image
+		    if (!empty($_FILES["image"]["tmp_name"])) {
+
+	            $temp = explode(".", $_FILES["image"]["name"]);
+	            $newfilename = "image-".round(microtime(true)) . '.' . end($temp);
+	            move_uploaded_file($_FILES["image"]["tmp_name"], "../uploads/blog/" . $newfilename);
+	            $stmt = $this->db->prepare("update tbl_blog set image =:image where blog_id=:id");
+	            $stmt->bindParam(':image',$newfilename);
+	            $stmt->bindValue(':id',$lastid->blog_id);
+	            $stmt->execute();
+		    } 
+
 	        $this->message = "<p class='alert alert-success'>Blog inserted succesfully</p>";
     	 	return $this->message;
+	    }
+
+	    /*
+		!------------------------------------------
+		! Show Blogs in frontend
+		!------------------------------------------
+		*/
+	    public function showBlog()
+	    {
+	        $sql    = "select * from tbl_blog join tbl_category on tbl_category.cat_id = tbl_blog.cat_id order by tbl_blog.blog_id desc";
+	        $stmt   =  $this->db->prepare($sql);
+	        $stmt->execute();
+	        $blogs = $stmt->fetchAll(PDO::FETCH_OBJ);
+	        return $blogs; 
 	    }
 
 	}

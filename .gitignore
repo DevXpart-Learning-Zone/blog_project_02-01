@@ -3,3 +3,5 @@ works
 .idea
 *.iml
 *.zip
+
+uploads/*
