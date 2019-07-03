@@ -3,9 +3,7 @@
   include 'classes/Database.php';
   include 'classes/User.php';
   include 'classes/Blog.php';
-  //echo "<pre>";
-  //print_r($_SESSION); die;
-  Session::checkSession() ;
+
   date_default_timezone_set('Asia/Dhaka');
   $db  = new Database();
   $blog = new Blog();
